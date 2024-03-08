@@ -1,4 +1,4 @@
-<nav class="">
+<nav class="mb-3">
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-start align-items-center">
@@ -14,18 +14,22 @@
                 <div class="mx-2 p-2 ">
                     <a class="link-hover nav-links" href="{{ route('admin.types.index') }}">Tipi</a>
                 </div>
+                <div class="mx-2 p-2 ">
+                    <a class="link-hover nav-links" href="{{ route('admin.technologies.index') }}">Tecnologie</a>
+                </div>
             </div>
             <div class="col d-flex justify-content-end align-items-center py-2">
                 <span class="text-light mx-3">Welcome {{ auth()->user()->name }}!</span>
+                <div class="col d-flex justify-content-center ">
+                    <form method="POST" action="{{ route('logout') }}" class="m-0">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-info mx-3">
+                            Log Out
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="col">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-info mx-3">
-                        Log Out
-                    </button>
-                </form>
-            </div>
+            
         </div>
     </div>
 </nav>

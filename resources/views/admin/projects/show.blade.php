@@ -31,6 +31,9 @@
                 <p>
                     {{ $project->description }}
                 </p>
+                {{-- <p>
+                    {{ $project->technology->title }}
+                </p> --}}
             </div>
         </div>
     </div>

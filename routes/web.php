@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+use App\Http\Controllers\Admin\TechnologyController as AdminTechnologyController;
 
 
 //Models
@@ -31,6 +32,8 @@ Route::prefix('admin')
     Route::resource('projects', AdminProjectController::class);
 
     Route::resource('types', AdminTypeController::class);
+
+    Route::resource('technologies', AdminTechnologyController::class);
 
 });
 

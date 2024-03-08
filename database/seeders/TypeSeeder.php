@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Schema;
 
 class TypeSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Schema::disableForeignKeyConstraints();
