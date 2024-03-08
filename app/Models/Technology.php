@@ -13,4 +13,10 @@ class Technology extends Model
         'title',
         'slug'
     ];
+
+    // Many-to-Many con Project
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }

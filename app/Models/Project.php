@@ -24,4 +24,10 @@ class Project extends Model
     {
         return $this->belongsTo(Type::class); //Tabella dipendente (*)
     }
+
+    // Definisco la relazione many to many
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class);
+    }
 }

@@ -17,6 +17,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Project Name</th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Tech</th>
                         <th scope="col">link</th>
                         <th scope="col">Description</th>
                         <th scope="col">Creation Date</th>
@@ -38,8 +39,15 @@
                                     -
                                 @endif
                             </td>
-                            <td><a
-                                    href="{{ route('admin.projects.show', ['project' => $project->id]) }}">{{ $project->url }}</a>
+                            <td>
+                                <div>
+                                    @foreach ($project->$technologies as $technology )
+                                        <a href="" class="badge rounded-pill text-bg-info">{{ $technology->title }}</a>
+                                    @endforeach
+                                </div>
+                            </td>
+                            <td>
+                                <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">{{ $project->url }}</a>
                             </td>
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->created_at->format('d/m/Y') }}</td>

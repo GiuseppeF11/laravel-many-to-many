@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 //Models
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 
 // Helpers
 use Illuminate\Support\Str;
@@ -34,8 +35,9 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -57,6 +59,12 @@ class ProjectController extends Controller
 
         $type = $projectData['type_id'];
 
+        if (isset($projectData['technologies'])) {
+            foreach ($projectData['technologies'] as $singleTechnologyId) {
+                $project->technologies()->attach($singleTechnologyId);
+            }
+        }
+
         return redirect()->route('admin.projects.show', compact('project', 'type'));
     }
     /**
@@ -73,8 +81,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types','technologies'));
     }
 
     /**
@@ -93,6 +102,13 @@ class ProjectController extends Controller
             'url' => $projectData['url'],
             'type_id' => $projectData['type_id'],
         ]);
+
+        if (isset($projectData['technologies'])) {
+            $project->technologies()->sync($projectData['technologies']);
+        }
+        else {
+            $project->technologies()->detach();
+        }
 
         return redirect()->route('admin.projects.show', compact('project'));
     }
