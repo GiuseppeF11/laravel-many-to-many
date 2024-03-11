@@ -15,7 +15,7 @@ class Technology extends Model
     ];
 
     // Many-to-Many con Project
-    public function projects()
+    public function projects() //VERIFICARE ERRORI DI PASSAGGIO DATI
     {
         return $this->belongsToMany(Project::class);
     }

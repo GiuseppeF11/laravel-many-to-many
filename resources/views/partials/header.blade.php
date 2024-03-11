@@ -20,10 +20,10 @@
             </div>
             <div class="col d-flex justify-content-end align-items-center py-2">
                 <span class="text-light mx-3">Welcome {{ auth()->user()->name }}!</span>
-                <div class="col d-flex justify-content-center ">
+                <div class="">
                     <form method="POST" action="{{ route('logout') }}" class="m-0">
                         @csrf
-                        <button type="submit" class="btn btn-outline-info mx-3">
+                        <button type="submit" class="btn btn-outline-info m-0">
                             Log Out
                         </button>
                     </form>

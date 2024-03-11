@@ -25,8 +25,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        $technologies = Project::all();
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects','technologies'));
     }
 
     /**
@@ -61,11 +62,12 @@ class ProjectController extends Controller
 
         if (isset($projectData['technologies'])) {
             foreach ($projectData['technologies'] as $singleTechnologyId) {
+                
                 $project->technologies()->attach($singleTechnologyId);
             }
         }
 
-        return redirect()->route('admin.projects.show', compact('project', 'type'));
+        return redirect()->route('admin.projects.show', compact('project'));
     }
     /**
      * Display the specified resource.

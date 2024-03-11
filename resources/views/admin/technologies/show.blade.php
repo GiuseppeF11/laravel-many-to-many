@@ -7,33 +7,33 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success">
+                    <h1 class="text-center text-dark">
                         {{ $technology->title }}
                     </h1>
                 </div>
             </div>
         </div>
     </div>
-    {{-- <div class="row">
+    
+    <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="text-center text-success">
-                        Tutti i progetti associati a questi tipi
+                    <h2 class="text-center text-dark">
+                        Tutti i progetti associati a questa tecnologia
                     </h2>
 
                     <ul>
                         @foreach ($technology->projects as $project)
-                            <li class="border-bottom">
+                            <li>
                                 <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">
                                     {{ $project->title }}
                                 </a>
-                                <p>{{ $project->description }}</p>
                             </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection
