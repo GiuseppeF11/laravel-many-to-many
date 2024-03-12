@@ -2,20 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-start align-items-center">
-                <a class="brand link-hover" href="{{ route('admin.projects.index') }}">MyPortfolio</a>
+                <a class="brand link-hover {{-- {{ request()->is('admin/dashboard') ? 'active' : '' }} --}}" href="{{-- {{ route('admin.projects.index') }} --}}">MyPortfolio</a>
             </div>
             <div class="col d-flex justify-content-center align-items-center">
                 <div class="mx-2 p-2">
-                    <a class="link-hover nav-links" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                    <a class="link-hover nav-links {{ request()->is('admin/dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
                 </div>
                 <div class="mx-2 p-2 ">
-                    <a class="link-hover nav-links" href="{{ route('admin.projects.index') }}">Home</a>
+                    <a class="link-hover nav-links {{ request()->is('admin/projects') ? 'active' : '' }}" href="{{ route('admin.projects.index') }}">Home</a>
                 </div>
                 <div class="mx-2 p-2 ">
-                    <a class="link-hover nav-links" href="{{ route('admin.types.index') }}">Tipi</a>
+                    <a class="link-hover nav-links {{ request()->is('admin/types') ? 'active' : '' }}" href="{{ route('admin.types.index') }}">Tipi</a>
                 </div>
                 <div class="mx-2 p-2 ">
-                    <a class="link-hover nav-links" href="{{ route('admin.technologies.index') }}">Tecnologie</a>
+                    <a class="link-hover nav-links {{ request()->is('admin/technologies') ? 'active' : '' }}" href="{{ route('admin.technologies.index') }}">Tecnologie</a>
                 </div>
             </div>
             <div class="col d-flex justify-content-end align-items-center py-2">
@@ -50,5 +50,12 @@
 
     .link-hover:hover {
         color: white;
+    }
+
+    .active {
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: underline;
+        text-shadow: 0 0 10px #53D4BE;
     }
 </style>

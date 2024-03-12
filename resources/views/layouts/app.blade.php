@@ -7,7 +7,6 @@
 
         <title>@yield('page-title') | {{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
     <body>
