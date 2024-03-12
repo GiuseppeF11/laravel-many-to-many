@@ -16,26 +16,48 @@
         </div>
 
         <div class="card">
-            <img src="https://beecrowd.io/wp-content/uploads/2022/08/Beecrowd-Agosto-6-02-larger.png" alt="{{ $project->title }}" class="card-img-top">
+            @if ($project->cover_img != null)
+                <img src="{{ asset('storage/'.$project->cover_img) }}" alt="{{ $project->title }}"> {{-- Usiamo asset per percorso url completo --}}
+            @endif
 
             <div class="card-body">
                 <ul>
                     <li>
-                        Data creazione: {{ $project->created_at->format('d/m/Y - H:i') }}
+                        <strong>Data di creazione: </strong> {{ $project->created_at->format('d/m/Y - H:i') }}
                     </li>
 
                     <li>
+                        <strong>Url: </strong>
+                        {{ $project->url }}
+                    </li>
+
+                    <li>
+                        <strong>Linguaggi: </strong>
                         {{ $project->type->title }}
+                    </li>
+                    <li>
+                        <strong>Tecnologie: </strong>
+                        @forelse ($project->technologies as $technology)
+                            <a href="{{ route('admin.technologies.show', ['technology' => $technology->id]) }}" class="badge rounded-pill text-bg-info">
+                                {{ $technology->title }}
+                            </a>
+                        @empty
+                            -
+                        @endforelse
                     </li>
                 </ul>
                 <p>
+                    <strong>Descrizione: </strong>
                     {{ $project->description }}
                 </p>
-                {{-- <p>
-                    {{ $project->technology->title }}
-                </p> --}}
-            </div>
         </div>
     </div>
 </div>
 @endsection
+
+<style lang="scss" scoped>
+    .card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>

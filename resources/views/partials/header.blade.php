@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-start align-items-center">
-                <a class="brand link-hover {{-- {{ request()->is('admin/dashboard') ? 'active' : '' }} --}}" href="{{-- {{ route('admin.projects.index') }} --}}">MyPortfolio</a>
+                <h3 class="brand">MyPortfolio</h3>
             </div>
             <div class="col d-flex justify-content-center align-items-center">
                 <div class="mx-2 p-2">
@@ -37,9 +37,6 @@
 <style lang="scss" scoped>
     .brand {
         color: #53D4BE;
-        font-size: 25px;
-        transition: ease 0.3s;
-
     }
 
     .nav-links {

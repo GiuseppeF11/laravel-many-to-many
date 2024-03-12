@@ -14,6 +14,7 @@ class Project extends Model
         'description',
         'url',
         'type_id',
+        'cover_img',
     ];
 
     /* 
